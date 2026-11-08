@@ -1,13 +1,30 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main extends Application {
+
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Math Defender");
+
+        // Tymczasowy przycisk startowy
+        Button btn = new Button("Uruchom grę");
+        btn.setOnAction(e -> System.out.println("Kliknięto menu!"));
+
+        StackPane root = new StackPane();
+        root.getChildren().add(btn);
+
+        // Tworzenie sceny o wymiarach 1280x720
+        Scene scene = new Scene(root, 1280, 720);
+
+        primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
+        primaryStage.show();
+    }
+
+    static void main(String[] args) {
+        launch(args);
     }
 }
